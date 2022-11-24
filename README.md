@@ -25,6 +25,12 @@ cd player-stat
 python manage.py runserver
 ```
 
+Run migrations:
+
+```sh
+python manage.py migrate
+```
+
 ## Features
 
 - View all players.
