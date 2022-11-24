@@ -18,6 +18,14 @@ The task is to create a small application using Django.
 
 Developed environment:  `Python >= 3.10.8` and `pip >= 22.3.1`. 
 
+Install MySql server on localhost
+
+```sh
+sudo apt install mysql-server
+ppip install mysqlclient
+```
+Reference: [Creating a Django App with MySql](https://www.cloudsigma.com/creating-a-django-app-with-database-connection-a-tutorial/)
+
 To install the project, run:
 
 ```sh
