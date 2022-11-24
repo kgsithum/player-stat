@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Player stats{% endblock %}</title>
+        {% load bootstrap5 %}
+        {# Load CSS and JavaScript #}
+        {% bootstrap_css %}
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-12">
+                
+                {% block topnav %}
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                      <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a {% block nav-player %}class="nav-link"{% endblock %} href="{% url 'player' %}">Players</a>
+                        </li>
+                        <li class="nav-item">
+                            <a {% block nav-ground %}class="nav-link"{% endblock %} href="{% url 'ground' %}">Grounds</a>
+                        </li>
+                      </ul>
+                    </div>
+                </nav>
+                {% endblock %}
+
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                  {% block content %}{% endblock %}
+              </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/player.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ground.js' %}"></script>
+</html>

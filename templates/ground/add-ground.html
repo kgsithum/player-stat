@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block nav-ground %}class="nav-link active"{% endblock %}
+
+{% block content %}
+<h2>Add ground</h2>
+<p>
+  Create a new cricket ground
+</p>
+
+<div class="card" style="width: 60rem;">
+  <div class="card-body">
+    {% include 'message.html' %}
+    <form id="add-ground" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="firstname"><strong>Ground Name</strong></label>
+            <input type="text" required class="form-control" id="name" placeholder="Ground name">
+        </div>
+        <div class="form-group">
+            <label for="lastname"><strong>City</strong></label>
+            <select class="form-control" id="cityId" required>
+                {% for city in cities %}
+                    <option value="{{ city.id }}">{{ city.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="capacity"><strong>Capacity</strong></label>
+            <input type="number" required class="form-control" id="capacity" placeholder="Capacity">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Add ground">
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

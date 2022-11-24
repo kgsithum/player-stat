@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block nav-ground %}class="nav-link active"{% endblock %}
+
+{% block content %}
+<h2>Grounds and cities</h2>
+<p>
+  List all available cricket grounds and cities.
+</p>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card" style="width: 60rem;">
+      <div class="card-header">
+        Grounds
+      </div>
+      <div class="card-body">
+        <a class="btn btn-primary btn-sm float-right" href="{% url 'addGround' %}">
+          Add ground
+        </a>
+        <p></p>
+        <p class="card-text">List all cricket grounds.</p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Ground name</th>
+              <th scope="col">City</th>
+              <th scope="col">Cpacity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ground in grounds %}
+              <tr>
+                <th scope="row">{{ ground.id }}</th>
+                <td>{{ ground.name }}</td>
+                <td>{{ ground.city.name }}</td>
+                <td>{{ ground.capacity }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card" style="width: 20rem;">
+      <div class="card-header">
+        Cities
+      </div>
+      <div class="card-body">
+        <a class="btn btn-primary btn-sm float-right" href="{% url 'addCity' %}">
+          Add city
+        </a>
+        <p></p>
+        <p class="card-text">List all cities.</p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">City</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for city in cities %}
+              <tr>
+                <th scope="row">{{ city.id }}</th>
+                <td>{{ city.name }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

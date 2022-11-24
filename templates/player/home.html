@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block nav-player %}class="nav-link active"{% endblock %}
+
+{% block content %}
+<h2>Players</h2>
+<p>
+  List all the players who are currently registered with the club.
+</p>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card" style="width: 60rem;">
+      <div class="card-body">
+        <a class="btn btn-primary btn-sm float-right" href="{% url 'addPlayer' %}">
+          Add player
+        </a>
+        <p></p>
+        <p class="card-text">List all the players who are currently registered with the club.</p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First name</th>
+              <th scope="col">Last name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Date of birth</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for player in players %}
+              <tr>
+                <th scope="row">{{ player.id }}</th>
+                <td><a href="#" onclick="loadPlayer({{ player.id }});">{{ player.first_name }}</a></td>
+                <td>{{ player.last_name }}</td>
+                <td>{{ player.email }}</td>
+                <td>{{ player.date_of_birth }}</td>
+                <td>
+                  {% if player.is_active %}
+                    Active
+                  {% else %}
+                    Inactive
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6" id="player-data">
+    
+  </div>
+</div>
+
+{% endblock content %}
