@@ -7,5 +7,6 @@ urlpatterns = [
     path('add-city/', views.addCity, name='addCity'),
     path('create-city/', views.createCity, name='createCity'),
     path('add-ground/', views.addGround, name='addGround'),
-    path('create-ground/', views.createGround, name='createGround')
+    path('create-ground/', views.createGround, name='createGround'),
+    path('prime-numbers/', views.primeNumbers, name='primeNumbers')
 ]

@@ -56,3 +56,26 @@ def createGround(request):
             return HttpResponse('New ground has been created successfully')
         except Exception as e:
             return HttpResponseServerError('Something went wrong' + e)
+
+def primeNumbers(request):
+    inputNumber = 100
+    primeNumbers = []
+
+    for number in range(2, (inputNumber+1)):
+        flag = False
+        print('Main Number')
+        print(number)
+        for chkNumber in range((number-1), 1, -1):
+            print('CHK Number')
+            print(chkNumber)
+            if number % chkNumber == 0:
+                print('true')
+                flag = True
+                break
+        
+        if flag == False:
+            primeNumbers.append(number)
+        
+
+    return HttpResponse(' '.join(str(e) for e in primeNumbers))
+
